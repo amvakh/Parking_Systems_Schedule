@@ -1,27 +1,73 @@
-# Parking Systems Scheduler 🚗🗓️
+# Parking Systems Scheduler
 
-A Paychex-integrated scheduling tool designed to automate and simplify parking slot reservations and availability tracking. This system streamlines backend scheduling logic with an intuitive frontend interface.
+A scheduling system that integrates with Paychex to help automate employee shift planning and parking availability for a small organization. Designed with a clean separation between backend logic and frontend interface, the tool makes it easier to generate, modify, and visualize parking schedules based on predefined business rules.
 
-## 🔧 Built With:
-- Node.js / Express
-- React (Frontend)
-- MongoDB (if used) or SQLite
-- Paychex API (mock or real)
-- Firebase (if applicable)
+---
 
-## ✨ Key Features:
-- Schedule generation based on availability rules
-- Admin panel for managing users and slots
-- API endpoints to reflect realistic workflow conditions
-- Functional testing and user acceptance testing flows
+## 📌 Project Overview
 
-## 📁 Folder Structure:
-- `src/` – React source files
-- `public/` – Static frontend assets
-- `PaymentPortal/` – Payment or Paychex-specific logic
-- `modify/` – Backend modifications or custom logic
+This project was built to simulate a real-world scheduling system that handles availability tracking, user account management, and secure schedule generation. While originally developed as an academic project, the system uses full-stack practices and reflects workflows found in internal scheduling tools.
 
-## 🛠️ Setup Instructions:
+It was developed as part of coursework at NYIT in 2024 and later expanded for portfolio use.
+
+---
+
+## 🛠 Tech Stack
+
+**Frontend**
+- React
+- HTML, CSS, JavaScript
+- Bootstrap (optional components)
+
+**Backend**
+- Node.js
+- Express
+- MongoDB or SQLite (modularized for mock data)
+- RESTful API structure
+
+**Other**
+- Firebase Auth (if used)
+- Paychex API simulation
+- Git version control
+
+---
+
+## 🔧 Features
+
+- Admin login with access control
+- Availability-based schedule generation
+- Option to export schedules (CSV or screen view)
+- API endpoints for basic CRUD operations
+- Manual override of generated time slots
+- Frontend UI for both employees and admins
+- Modular backend logic for different schedule types
+
+---
+
+## 🗂️ Folder Structure
+
+Parking-Systems-Scheduler/
+├── public/ # Static files
+├── src/ # React frontend
+├── PaymentPortal/ # Paychex integration and logic
+├── modify/ # Backend scheduler logic and helpers
+├── .gitignore
+├── package.json
+├── README.md
+
+
+---
+
+## 🚀 Getting Started
+
+### Prerequisites
+- Node.js (v14+ recommended)
+- npm or yarn
+
+### Installation
+
 ```bash
+git clone https://github.com/amvakh/Parking-Systems-Scheduler.git
+cd Parking-Systems-Scheduler
 npm install
 npm start
