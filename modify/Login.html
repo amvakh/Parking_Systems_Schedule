@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Login Screen</title>
+    <link rel="stylesheet" href="loginSample.css">
+    <link rel="stylesheet" href="./style.css">
+    <style>
+    body 
+    {
+    font-family: 'Roboto', sans-serif;
+    background: linear-gradient(120deg, #3498db);  /* Removed the extra comma at the end */
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    }
+
+
+        .login-page {
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 8px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+            width: 450px;
+            margin: auto; 
+            padding: 70px; 
+            padding-top: 85px;
+            padding-bottom: 5px;
+            color: #2c3e50;
+        }
+
+        .form {
+            padding: 80px;
+        }
+
+        .login-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        input {
+            width: 100%;
+            padding: 30px; /* Increased padding for larger input boxes */
+            margin-bottom: 30px;
+            border: 1px solid #3498db;
+            border-radius: 10px; /* Increased border-radius for rounder corners */
+            box-sizing: border-box;
+            color: #2c3e50;
+            background-color: #ecf0f1;
+            transition: 0.3s;
+        }
+
+        input:focus {
+            outline: none;
+            border-color: #2980b9;
+        }
+
+        .login-button {
+            background-color: #3498db;
+            color: #fff;
+            padding: 20px; /* Increased padding for larger button */
+            border: none;
+            border-radius: 10px; /* Increased border-radius for rounder corners */
+            cursor: pointer;
+            width: 100%;
+            transition: 0.3s;
+        }
+
+        .login-button:hover {
+            background-color: #2980b9;
+        }
+
+        .message {
+            text-align: center;
+            margin-top: 30px;
+            color: #7f8c8d;
+        }
+
+        a {
+            color: #3498db;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-page" id="login-page">
+        <div class="form">
+            <div class="login">
+                <div class="login-header">
+                    <h3 style="color: #3498db;">Login Parking-Systems-Scheduler</h3>
+              
+                    <p style="color: #7f8c8d;">Please enter your credentials to log in.</p>
+                </div>
+            </div>
+            <form class="login-form" id="login-form" novalidate>
+              <input type="text" placeholder="Username" id="username" name="username" required/>
+              <input type="password" placeholder="Password" id="password" name="password" required>
+              <button class="login-button" type="submit">Login</button>
+              <p class="message">Not registered? <a href="create-account.html">Create an account</a></p>
+          </form>
+        </div>
+    </div>
+
+    <script>
+        // For Login
+        document.getElementById("login-form").addEventListener("submit", async function (event) {
+        event.preventDefault();
+        var username = document.getElementById("username").value;
+        var password = document.getElementById("password").value;
+
+        if (!username || !password) {
+            alert("Please fill out both username and password fields.");
+            return;
+        }
+
+        try {
+            const response = await fetch('http://localhost:3000/api/login', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ username: username, password: password })
+            });
+
+            if (response.ok) {
+                const data = await response.json();
+
+                if (data.title === "employee") {
+                    document.getElementById("login-page").classList.add("hidden");
+                    document.getElementById("schedule-table").classList.remove("hidden");
+                } else if (data.title === "manager") {
+                    document.getElementById("login-page").classList.add("hidden");
+                    document.getElementById("schedule-tabs").classList.remove("hidden");
+                } else if (data.title === "unauthorized") {
+                    alert("Wrong username or password.");
+                } else {
+                    alert("Login failed. Please check your credentials.");
+                }
+
+            } else {
+                console.error('Failed to receive a valid response from the server.');
+            }
+
+        } catch (error) {
+            console.error('Error sending message to the server:', error);
+        }
+    });
+</script>
+</body>
+</html>

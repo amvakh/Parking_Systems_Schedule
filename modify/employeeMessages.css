@@ -1,0 +1,28 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:300);
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "Roboto", sans-serif;
+}
+
+  .message-list {
+    display: flex;
+    flex-direction: column;
+}
+
+.message {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 10px;
+    margin-bottom: 15px;
+}
+
+.message h3 {
+    margin: 0;
+}
+
+.timestamp {
+    color: #888;
+    font-size: 0.8em;
+}

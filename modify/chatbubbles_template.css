@@ -1,0 +1,69 @@
+body {
+    font-family: "Roboto", sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .chat-container {
+    max-width: 400px;
+    margin: 50px auto;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+  }
+  
+  .chat-box {
+    max-height: 300px;
+    overflow-y: auto;
+  }
+  
+  .chat-bubble {
+    position: relative;
+    background: linear-gradient(120deg, #848484, #585858);
+    color: #ffffff;
+    padding: 10px;
+    border-radius: 10px;
+    margin: 5px 0;
+  }
+  
+  .message-input {
+    font-family: "Roboto", sans-serif;
+    padding: 10px;
+    border-radius: 10px;
+    margin: 0;
+   }
+
+   textarea{
+    resize: none;
+    max-width: 400px;
+   }
+
+  .user-bubble {
+    background: linear-gradient(120deg, #848484, #c6221f);
+    text-align: right;
+  }
+  
+  .sender-name {
+    font-weight: bold;
+    color: #ffffff;
+    font-family: "Roboto", sans-serif;
+  }
+  
+  button {
+    font-family: "Roboto", sans-serif;
+    text-transform: uppercase;
+    outline: 0;
+    background-color: #504e4e;
+    background-image: linear-gradient(45deg,#504e4e,#848484);
+    width: 90px;
+    height: 40px;
+    vertical-align: middle;
+    margin-left: 310px;
+    border-width: 5px;
+    border-color: black;
+    color: #FFFFFF;
+    font-size: 14px;
+    -webkit-transition: all 0.3 ease;
+    transition: all 0.3 ease;
+    cursor: pointer;
+}

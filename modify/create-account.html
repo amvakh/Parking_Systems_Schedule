@@ -1,0 +1,149 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Create Account</title>
+    <link rel="stylesheet" href="loginSample.css">
+    <link rel="stylesheet" href="./style.css">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background: linear-gradient(120deg, #a2ccb6, #fceeb5);
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .create-account-page {
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 30px;
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+            margin: auto;
+            padding: 40px;
+            padding-top: 100px;
+            padding-bottom: 20px;
+            color: #36454f;
+        }
+
+        .form {
+            padding: 40px;
+        }
+
+        .create-account-header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        input {
+            width: 100%;
+            padding: 15px;
+            margin-bottom: 20px;
+            border: 2px solid #4caf50;
+            border-radius: 10px;
+            box-sizing: border-box;
+            color: #36454f;
+            background-color: #ecf0f1;
+            transition: 0.3s;
+        }
+
+        input:focus {
+            outline: none;
+            border-color: #2ecc71;
+        }
+
+        .create-account-button {
+            background-color: #4caf50;
+            color: #fff;
+            padding: 15px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            width: 100%;
+            transition: 0.3s;
+        }
+
+        .create-account-button:hover {
+            background-color: #45a049;
+        }
+
+        .message {
+            text-align: center;
+            margin-top: 20px;
+            color: #7f8c8d;
+        }
+
+        .error-message {
+            color: red;
+            display: none;
+        }
+
+        a {
+            color: #4caf50;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="create-account-page" id="create-account-page">
+        <div class="form">
+            <div class="create-account-header">
+                <h1 style="color: #4caf50;">Create Account</h1>
+            </div>
+            <form class="create-account-form" id="create-account-form" novalidate>
+                <input type="text" placeholder="Username" id="create-username" name="create-username" required/>
+                <input type="password" placeholder="Password" id="create-password" name="create-password" required>
+                <button class="create-account-button" type="button" onclick="createAccount()">Create Account</button>
+                <p id="validation-message" class="error-message">Please fill out both username and password fields.</p>
+                <p class="message">Already have an account? <a href="Login.html">Login</a></p>
+            </form>
+        </div>
+    </div>
+<script>
+  async function createAccount() {
+    var createUsername = document.getElementById("create-username").value;
+    var createPassword = document.getElementById("create-password").value;
+
+    if (!createUsername || !createPassword) {
+      // Display validation message
+      document.getElementById("validation-message").style.display = "block";
+      return;
+    }
+
+    try {
+      const response = await fetch('http://localhost:3000/api/register', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ username: createUsername, password: createPassword })
+      });
+
+      if (response.ok) {
+        // Registration successful, redirect to login.html
+        window.location.href = "Login.html";
+      } else {
+        // Handle other server response errors
+        document.getElementById("validation-message").style.display = "block";
+        console.error('Failed to receive a valid response from the server.');
+      }
+
+    } catch (error) {
+      // Handle network or other errors
+      document.getElementById("validation-message").style.display = "block";
+      console.error('Error sending message to the server:', error);
+    }
+  }
+</script>
+    </script>
+</body>
+</html>

@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<head>
+  <link rel="stylesheet" href="loginSample.css">
+  <link rel="stylesheet" href="tabs.css">
+  <title> Login Screen </title>
+</head>
+<body>
+    <div class="login-page" id="login-page">
+      <div class="form">
+        <div class="login">
+          <div class="login-header">
+            <h3>LOGIN</h3>
+            <p>Please enter your credentials to log in.</p>
+          </div>
+        </div>
+        <form class="login-form" id="login-form">
+          <input type="text" placeholder="username" id="username" name="username" required/>
+          <input type="password" placeholder="password" id="password" name="password" required>
+          <button class="login-button" type="submit">login</button>
+          <p class="message">Not registered? <a href="#">Create an account</a></p>
+        </form>
+      </div>
+    </div>
+ 
+  <table class="hidden" id="schedule-table">
+        <tr>
+            <th>Employer Location</th>
+            <th>Day of Week</th>
+            <th>Start Time</th>
+            <th>End Time</th>
+            <th>Employee ID</th>
+        </tr>
+        <tr>
+            <td>Location 1</td>
+            <td>Monday</td>
+            <td>09:00 AM</td>
+            <td>05:00 PM</td>
+            <td>001</td>
+        </tr>
+        <tr>
+            <td>Location 2</td>
+            <td>Tuesday</td>
+            <td>10:00 AM</td>
+            <td>06:00 PM</td>
+            <td>002</td>
+        </tr>
+        <tr>
+            <td>Location 3</td>
+            <td>Wednesday</td>
+            <td>08:30 AM</td>
+            <td>04:30 PM</td>
+            <td>003</td>
+        </tr>
+        <!-- Add more rows for additional schedules -->
+    </table>
+
+    <div class="hidden" id="schedule-tabs">
+      <button class="tab-button" onclick="openTab('monday')">Monday</button>
+      <button class="tab-button" onclick="openTab('tuesday')">Tuesday</button>
+      <button class="tab-button" onclick="openTab('wednesday')">Wednesday</button>
+      <button class="tab-button" onclick="openTab('thursday')">Thursday</button>
+      <button class="tab-button" onclick="openTab('friday')">Friday</button>
+      <button class="tab-button" onclick="openTab('saturday')">Saturday</button>
+      <button class="tab-button" onclick="openTab('sunday')">Sunday</button>
+      <!-- Add more tabs as needed -->
+    </div>
+  
+    <div class = "hidden" id="monday" class="tab-content active-tab">
+      <table>
+        <tr>
+          <th>Employer Location</th>
+          <th>Start Time</th>
+          <th>End Time</th>
+          <th>Employee ID</th>
+        </tr>
+        <!-- Monday schedule rows -->
+  
+        <tr>
+          <td>Location 1</td>
+          <td>Monday</td>
+          <td>09:00 AM</td>
+          <td>05:00 PM</td>
+          <td>001</td>
+        </tr>
+      </table>
+    </div>
+  
+    <div class = "hidden" id="tuesday" class="tab-content active-tab">
+      <table>
+        <tr>
+          <th>Employer Location</th>
+          <th>Start Time</th>
+          <th>End Time</th>
+          <th>Employee ID</th>
+        </tr>
+        <!-- Tuesday schedule rows -->
+  
+        <tr>
+          <td>Location 2</td>
+          <td>Tuesday</td>
+          <td>10:00 AM</td>
+          <td>06:00 PM</td>
+          <td>002</td>
+        </tr>
+      </table>
+    </div>
+  
+    <div class = "hidden" id="wednesday" class="tab-content active-tab">
+      <table>
+        <tr>
+          <th>Employer Location</th>
+          <th>Start Time</th>
+          <th>End Time</th>
+          <th>Employee ID</th>
+        </tr>
+        <!-- Wednesday schedule rows -->
+  
+        <tr>
+          <td>Location 3</td>
+          <td>Wednesday</td>
+          <td>08:30 AM</td>
+          <td>04:30 PM</td>
+          <td>003</td>
+        </tr>
+  
+      </table>
+    </div>
+  
+    <div class = "hidden" id="thursday" class="tab-content active-tab">
+      <table>
+        <tr>
+          <th>Employer Location</th>
+          <th>Start Time</th>
+          <th>End Time</th>
+          <th>Employee ID</th>
+        </tr>
+        <!-- Thursday schedule rows -->
+  
+        <tr>
+          <td>Location 4</td>
+          <td>Thursday</td>
+          <td>11:00 AM</td>
+          <td>07:00 PM</td>
+          <td>004</td>
+        </tr>
+    
+      </table>
+    </div>
+    <div class = "hidden" id="friday" class="tab-content active-tab">
+      <table>
+        <tr>
+          <th>Employer Location</th>
+          <th>Start Time</th>
+          <th>End Time</th>
+          <th>Employee ID</th>
+        </tr>
+        <!-- Friday schedule rows -->
+  
+        <tr>
+          <td>Location 5</td>
+          <td>Friday</td>
+          <td>09:30 AM</td>
+          <td>05:30 PM</td>
+          <td>005</td>
+        </tr>
+    
+      </table>
+    </div>
+  
+    <div class = "hidden" id="saturday" class="tab-content active-tab">
+      <table>
+        <tr>
+          <th>Employer Location</th>
+          <th>Start Time</th>
+          <th>End Time</th>
+          <th>Employee ID</th>
+        </tr>
+        <!-- Saturday schedule rows -->
+        <tr>
+          <td>Location 6</td>
+          <td>Saturday</td>
+          <td>10:00 AM</td>
+          <td>04:00 PM</td>
+          <td>006</td>
+        </tr>
+      </table>
+    </div>
+  
+    <div class = "hidden" id="sunday" class="tab-content active-tab">
+      <table>
+        <tr>
+          <th>Employer Location</th>
+          <th>Start Time</th>
+          <th>End Time</th>
+          <th>Employee ID</th>
+        </tr>
+        <!-- Sunday schedule rows -->
+        <tr>
+          <td>Location 7</td>
+          <td>Sunday</td>
+          <td>12:00 PM</td>
+          <td>06:00 PM</td>
+          <td>007</td>
+        </tr>
+    
+      </table>
+    </div>
+
+
+
+    <!-- Script for functionality -->
+    <script>
+      function openTab(day) 
+        {
+          var i;
+          var tabContent = document.getElementsByClassName("tab-content");
+          for (i = 0; i < tabContent.length; i++) {
+            tabContent[i].style.display = "none";
+          }
+          document.getElementById(day).style.display = "block";
+        }
+      
+        // For Login 
+      document.getElementById("login-form").addEventListener("submit", async function (event) {
+          event.preventDefault();
+
+          // Replace these values with actual authentication logic
+          var username = document.getElementById("username").value;
+          var password = document.getElementById("password").value;
+
+          try{
+              const response = await fetch('http://localhost:3000/api/login', {
+                  method: 'POST',
+                  headers: {
+                      'Content-Type': 'application/json',
+                  },
+                  body: JSON.stringify({ username: username, password: password})
+              });
+
+              if(response.ok){
+                  const data = await response.json();
+
+                  if (data.title === "employee") {
+                      // Hide the login form and show the schedule table
+                      document.getElementById("login-page").classList.add("hidden");
+                      document.getElementById("schedule-table").classList.remove("hidden");
+                  } else if (data.title === "manager"){
+                      // Hide login form and show manager screen
+                      document.getElementById("login-page").classList.add("hidden");
+                      document.getElementById("schedule-tabs").classList.remove("hidden");
+                  } else if(data.title === "unauthorized"){
+                    alert("Wrong username or password.");
+                  } else {
+                      alert("Login failed. Please check your credentials.");
+                  }
+                  
+              }else{
+                  console.error('Failed to receive a valid response from the server.');
+              }
+
+          }catch (error) {
+              console.error('Error sending message to the server:', error);
+            }
+      });
+    </script>
+</body>
+</html>

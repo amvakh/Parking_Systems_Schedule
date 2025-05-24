@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Table</title>
+    <link rel="stylesheet" href="CreateMaster.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        #data-table {
+            border-collapse: collapse;
+            width: 50%;
+            margin: 20px auto;
+        }
+
+        th,
+        td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: center;
+        }
+
+        th {
+            color: #FFFFFF;
+            background-color: #328f8a;
+            background-image: linear-gradient(45deg, #328f8a, #08ac4b);
+        }
+
+        button {
+            font-family: "Roboto", sans-serif;
+            text-transform: uppercase;
+            outline: 0;
+            background-color: #328f8a;
+            background-image: linear-gradient(45deg, #328f8a, #08ac4b);
+            width: 150px;
+            border: 0;
+            padding: 15px;
+            color: #FFFFFF;
+            font-size: 14px;
+            -webkit-transition: all 0.3 ease;
+            transition: all 0.3 ease;
+            cursor: pointer;
+            margin: 10px;
+        }
+
+        button:hover {
+            background-color: #08ac4b;
+        }
+
+        .highlight {
+            background-color: #ffc107;
+        }
+    </style>
+</head>
+
+<body>
+    <table id="data-table">
+        <thead>
+            <tr>
+                <th>Account</th>
+                <th>Day of the Week</th>
+                <th>Employee</th>
+                <th>Paid Time In</th>
+                <th>Paid Time Out</th>
+                <th>Dinner/Lunch Break</th>
+                <th>Hours</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- You can add initial rows here if needed -->
+            <!-- Account placeholder-->
+        </tbody>
+    </table>
+
+    <button onclick="addRow()">Add Row</button>
+    <button onclick="calculateTotalHours()">Calculate Total Hours</button>
+    <button onclick="calculateTotalPaidTime()">Calculate Total Paid Time</button>
+    <button onclick="exportTableToCSV()">Export to CSV</button>
+
+    <script>
+        function addRow() {
+            var table = document.getElementById("data-table").getElementsByTagName('tbody')[0];
+            var newRow = table.insertRow(table.rows.length);
+
+            for (var i = 0; i < 7; i++) {
+                var cell = newRow.insertCell(i);
+                cell.innerHTML = `<input type="text" name="column${i + 1}" value="">`;
+            }
+
+            var removeCell = newRow.insertCell(7);
+            removeCell.innerHTML = '<button onclick="removeRow(this)">Remove</button>';
+        }
+
+        function removeRow(button) {
+            let text = "Are you sure you want to delete this row?";
+            if (confirm(text) == true) {
+                var row = button.parentNode.parentNode;
+                row.parentNode.removeChild(row);
+            } else {
+                //do nothing?
+            }
+        }
+
+        function calculateTotalHours() {
+            var table = document.getElementById("data-table");
+            var totalHours = 0;
+
+            for (var i = 1, row; row = table.rows[i]; i++) {
+                var hoursCell = row.cells[6].getElementsByTagName('input')[0].value;
+                if (!isNaN(parseFloat(hoursCell))) {
+                    totalHours += parseFloat(hoursCell);
+                }
+            }
+
+            alert("Total Hours: " + totalHours);
+        }
+
+        function calculateTotalPaidTime() {
+            var table = document.getElementById("data-table");
+            var totalPaidTime = 0;
+
+            for (var i = 1, row; row = table.rows[i]; i++) {
+                var paidTimeInCell = row.cells[3].getElementsByTagName('input')[0].value;
+                var paidTimeOutCell = row.cells[4].getElementsByTagName('input')[0].value;
+
+                if (!isNaN(parseFloat(paidTimeInCell)) && !isNaN(parseFloat(paidTimeOutCell))) {
+                    totalPaidTime += parseFloat(paidTimeOutCell) - parseFloat(paidTimeInCell);
+                }
+            }
+
+            alert("Total Paid Time: " + totalPaidTime.toFixed(2) + " hours");
+        }
+       
+    exportTableToCSV: function exportTableToCSV() {
+    var csvContent = "parkins systems scheduler summary: ";
+    var table = document.getElementById("data-table");
+
+    for (var i = 0, row; row = table.rows[i]; i++) {
+        var rowData = [];
+        for (var j = 0, col; col = row.cells[j]; j++) {
+            var inputElement = col.querySelector('input');
+            if (inputElement) {
+                rowData.push(inputElement.value);
+            } else {
+                rowData.push("");
+            }
+        }
+        csvContent += rowData.join(",") + "\n";
+    }
+
+    var blob = new Blob([csvContent], { type: 'text/csv' });
+    var link = document.createElement("a");
+
+    link.href = window.URL.createObjectURL(blob);
+    link.setAttribute("download", "table_data.csv");
+
+    // Use the click method directly
+    link.click();
+}
+</script>
+</body>
+</html>

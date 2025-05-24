@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scheduling System</title>
+    <!-- Include Leaflet CSS and JavaScript -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <link rel="stylesheet" href="GeolocationStyles.css">
+</head>
+
+<body>
+    <!-- Heading for the application -->
+    <h1>Manager Scheduling System</h1>
+
+    <!-- Container for Leaflet map -->
+    <div id="mapContainer">
+        <!-- Replace the iframe with a div for Leaflet map -->
+        <div id="map"></div>
+        <!-- Overlay for the map -->
+        <div id="mapOverlay"></div>
+    </div>
+
+    <!-- Form to input account ID -->
+    <form id="accountNumberForm">
+        <label for="accountId">Account ID:</label>
+        <input type="text" id="accountId" name="accountId" required>
+        <input type="button" value="Mark on Map" onclick="markOnMap()">
+    </form>
+
+    <!-- Control buttons for map markers -->
+    <div class="controls">
+        <button onclick="clearMarkers()">Clear Markers</button>
+        <button onclick="showMarkerDetails()">Show Marker Details</button>
+    </div>
+
+    <!-- Display marker details -->
+    <p id="markerDetails" class="marker-details"></p>
+
+    <!-- JavaScript code for map functionality -->
+    <script src="script.js"></script>
+</body>
+
+</html>
