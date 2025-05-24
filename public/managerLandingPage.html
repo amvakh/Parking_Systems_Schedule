@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="managerLandingPage.css">
+    <link rel="stylesheet" href="SidebarDesign.css">
+    <title>Manager Portal</title>
+</head>
+<body>
+
+    <!-- Sidebar/Navigation -->
+    <nav class="sidebar">
+        <ul>
+            <img src="PS_LOGO-5975.png" alt="Logo">
+            <li><a href="managerLandingPage.html">Home</a></li>
+            <li><a href="CreateMaster.html">Master Schedule</a></li>
+            <li><a href="managerMessages.html">Messages</a></li>
+            <li><a href="create-account.html">Create New Account</a></li>
+            <!-- Add more menu items as needed -->
+        </ul>
+    </nav> 
+
+    <!-- Main Content -->
+    <div class="content">
+        <!-- Add your main content here -->
+        <div class="app">
+            <div class="app-header">
+              <h1>Welcome to the Manager Portal!</h1>
+              <p>You can view information about your employees here.</p>
+            </div>
+            <div class="app-body">
+              <h1>Mutation Results</h1>
+              <button id="MutationEventButton">Add data</button>
+              <div id="MutationResult"></div>
+              <hr />
+      
+              <h1>Query Results</h1>
+              <div id="QueryResult"></div>
+              <hr />
+      
+              <h1>Subscription Results</h1>
+              <div id="SubscriptionResult"></div>
+            </div>
+        </div>
+    </div>
+    <script type="module" src="./managerLandingPage.js"></script>
+</body>
+</html>

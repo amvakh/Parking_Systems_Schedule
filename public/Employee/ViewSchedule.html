@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="ViewSchedule.css">
+  <link rel="stylesheet" href="../SidebarDesign.css">
+  <title class="title">Weekly Employee Schedule</title>
+</head>
+<body onload="getSchedule()">
+
+  <!-- Sidebar/Navigation -->
+  <nav class="sidebar">
+    <ul>
+        <img src="../PS_LOGO-5975.png" alt="Logo">
+        <li><a href="employeeLandingPage.html">Home</a></li>
+        <li><a href="ViewSchedule.html">Schedule</a></li>
+        <!-- Add more menu items as needed -->
+    </ul>
+</nav>
+
+<div class ="content">
+  <h2>Weekly Employee Schedule</h2>
+
+  <!-- <form id="employeeIdForm">
+    <label for="employeeId">Enter Employee ID: </label>
+    <input type="text" id="employeeId" name="employeeId" required>
+    <button type="button" onclick="filterSchedule()">Filter Schedule</button>
+  </form> -->
+
+  <table>
+    <thead>
+      <tr>
+        <th>Date</th>
+        <th>Day of Week</th>
+        <th>Location</th>
+        <th>Paid Time In</th>
+        <th>Paid Time Out</th>
+        <th>Dinner/Lunch Break</th>
+        <th>Hours</th>
+      </tr>
+    </thead>
+    <tbody id="scheduleBody"></tbody>
+  </table>
+
+  <script src="ViewSchedule.js"> </script>
+</div>
+</body>
+</html>

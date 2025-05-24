@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<head>
+    <title>Master Schedule</title>
+    <link rel="stylesheet" href="CreateMaster.css">
+    <link rel="stylesheet" href="SidebarDesign.css">
+</head>
+<body onload="getSearchFields();">
+    <!-- Sidebar/Navigation -->
+    <nav class="sidebar">
+        <ul>
+            <img src="PS_LOGO-5975.png" alt="Logo">
+            <li><a href="managerLandingPage.html">Home</a></li>
+            <li><a href="CreateMaster.html">Master Schedule</a></li>
+            <li><a href="managerMessages.html">Messages</a></li>
+            <li><a href="create-account.html">Create New Account</a></li>
+            <!-- Add more menu items as needed -->
+        </ul>
+    </nav>
+
+    <div class="content">
+        <header>Page 1 - Schedule</header>
+        <form id="master_schedule_form" autocomplete="off"> 
+            <table id="data-table">
+                <thead>
+                    <tr>
+                        <th>Account</th>
+                        <th>Location</th>
+                        <th>Date</th>
+                        <th>Day of the Week</th>
+                        <th>First Name</th> 
+                        <th>Last Name</th>
+                        <th>Employee ID#</th>
+                        <th>Ordered Time In</th> 
+                        <th>Ordered Time Out </th>
+                        <th>Dinner/Lunch Break</th> <!-- expected value between (1 & 0) ex .5-->
+                        <th>Hours</th> <!--calculated hours employee should be working --> 
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- You can add initial rows here if needed -->
+                    <!-- Account placeholder-->
+                </tbody>
+            </table>
+            <input type="submit" class="Btn">
+        </form>
+
+        <button onclick="addRow()" class="Btn">Add Row</button>
+
+        <script src="CreateMaster.js"></script>
+    </div>
+</body>
+</html>

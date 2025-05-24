@@ -1,0 +1,14 @@
+.dropdown-content {
+    /* display: none; */
+    position: absolute;
+    /* More styling for dropdown */
+  }
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+  .number-roller {
+    /* Add your styling here */
+    display: inline-block; /* Display rollers in a row */
+    margin: 0 2px; /* Spacing between rollers */
+    /* Additional styles (height, width, border, etc.) */
+  }

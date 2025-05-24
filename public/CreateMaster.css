@@ -1,0 +1,51 @@
+.data-table {
+    border-collapse: collapse;
+    width: auto;
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+th, td {
+    border: 1px solid black;
+    padding: 8px;
+    text-align: center;
+    margin: auto;
+    height: 50px;
+    width: 150px;
+}
+
+th {
+    color: #FFFFFF;
+    background-color: #504e4e;
+    background-image: linear-gradient(45deg,#504e4e,#848484);
+    font-family: "Roboto", sans-serif;
+    margin: auto;
+}
+
+header {
+    font-family: "Roboto", sans-serif;
+    font-size: 24px;
+    font-weight: bold;
+    font-style: italic;
+    margin-bottom: 20px;
+}
+
+.Btn {
+    font-family: "Roboto", sans-serif;
+    text-transform: uppercase;
+    outline: 0;
+    background-color: #504e4e;
+    background-image: linear-gradient(45deg,#504e4e,#848484);
+    width: 150px;
+    height: 40px;
+    border-width: 5px;
+    border-color: black;
+    margin-left: 0px;
+    margin-top: 5px;
+    color: #FFFFFF;
+    font-size: 14px;
+    -webkit-transition: all 0.3 ease;
+    transition: all 0.3 ease;
+    cursor: pointer;
+}

@@ -1,0 +1,83 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    background: linear-gradient(120deg, #848484, #c6221f);
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.create-account-page {
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 30px;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    margin: auto;
+    padding: 40px;
+    padding-top: 100px;
+    padding-bottom: 20px;
+    color: #36454f;
+    margin-top: 75px;
+}
+
+.form {
+    padding: 40px;
+}
+
+.create-account-header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+input {
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 2px solid #4caf50;
+    border-radius: 10px;
+    box-sizing: border-box;
+    color: #36454f;
+    background-color: #ecf0f1;
+    transition: 0.3s;
+}
+
+input:focus {
+    outline: none;
+    border-color: #2ecc71;
+}
+
+.create-account-button {
+    background-color: #c6221f;
+    color: #fff;
+    padding: 15px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    width: 100%;
+    transition: 0.3s;
+}
+
+.create-account-button:hover {
+    background-color: #c6221f;
+}
+
+.message {
+    text-align: center;
+    margin-top: 20px;
+    color: #7f8c8d;
+}
+
+.error-message {
+    color: red;
+    display: none;
+}
+
+a {
+    color: #c6221f;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Create Account</title>
+    <link rel="stylesheet" href="loginSample.css">
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="create-account.css">
+    <link rel="stylesheet" href="SidebarDesign.css">
+</head>
+<body>
+    <nav class="sidebar">
+        <ul>
+            <img src="PS_LOGO-5975.png" alt="Logo">
+            <li><a href="managerLandingPage.html">Home</a></li>
+            <li><a href="CreateMaster.html">Master Schedule</a></li>
+            <li><a href="managerMessages.html">Messages</a></li>
+            <li><a href="create-account.html">Create New Account</a></li>
+            <!-- Add more menu items as needed -->
+        </ul>
+    </nav>
+
+    <div class="content">
+        <div class="create-account-page" id="create-account-page">
+            <div class="form">
+                <div class="create-account-header">
+                    <h1 style="color: #c6221f;">Add New Account</h1>
+                </div>
+                <form class="create-account-form" id="create-account-form" novalidate>
+                    <input type="text" placeholder="ID" id="create-id" name="create-id" required/>
+                    <input type="firstName" placeholder="First Name" id="create-firstName" name="create-firstName" required/>
+                    <input type="lastName" placeholder="Last Name" id="create-lastName" name="create-lastName" required/>
+                    <input type="text" placeholder="Username" id="create-username" name="create-username" required/>
+                    <input type="password" placeholder="Password" id="create-password" name="create-password" required/>
+                    <p>Is Manager?</p>
+                    <input type="checkbox" placeholder="IsManager" id="create-isManager" name="create-isManager"/>
+                    <button class="create-account-button" type="button" onclick="createAccount()">Create Account</button>
+                    <p id="validation-message" class="error-message">Please fill out all fields.</p>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script>
+        async function createAccount() {
+            var createId = document.getElementById("create-id").value;
+            var createFirstName = document.getElementById("create-firstName").value;
+            var createLastName = document.getElementById("create-lastName").value;
+            var createUsername = document.getElementById("create-username").value;
+            var createPassword = document.getElementById("create-password").value;
+            var createIsManager = document.getElementById("create-isManager").checked; // Capture boolean value
+            var validationMessage = document.getElementById("validation-message");
+
+            if (!createId || !createFirstName || !createLastName || !createUsername || !createPassword) {
+                // Display validation message for missing fields
+                validationMessage.textContent = "Please fill out all fields.";
+                validationMessage.style.display = "block";
+                return;
+            }
+
+            try {
+                const response = await fetch('http://localhost:3000/api/accountRegister', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        id: createId,
+                        firstName: createFirstName,
+                        lastName: createLastName,
+                        username: createUsername,
+                        password: createPassword,
+                        isManager: createIsManager
+                    })
+                });
+
+                if (response.ok) {
+                    // Registration successful
+                    alert('Account successfully created!');
+                    document.getElementById('create-account-form').reset(); // Clear form inputs
+                } else if (response.status === 400) {
+                    const errorMessage = await response.text();
+                    validationMessage.textContent = errorMessage;
+                    validationMessage.style.display = "block";
+                } else {
+                    // Handle other server response errors
+                    validationMessage.textContent = "An unexpected error occurred. Please try again.";
+                    validationMessage.style.display = "block";
+                }
+            } catch (error) {
+                // Handle network or other errors
+                validationMessage.textContent = "Error sending message to the server: " + error.message;
+                validationMessage.style.display = "block";
+                console.error('Error sending message to the server:', error);
+            }
+        }
+    </script>
+</body>
+</html>

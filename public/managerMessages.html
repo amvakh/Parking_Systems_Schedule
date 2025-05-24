@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="managerMessages.css">
+    <link rel="stylesheet" href="SidebarDesign.css">
+    <title>Messages</title>
+</head>
+<body>
+
+    <!-- Sidebar/Navigation -->
+    <nav class="sidebar">
+        <ul>
+            <img src="PS_LOGO-5975.png" alt="Logo">
+            <li><a href="managerLandingPage.html">Home</a></li>
+            <li><a href="CreateMaster.html">Master Schedule</a></li>
+            <li><a href="managerMessages.html">Messages</a></li>
+            <li><a href="create-account.html">Create New Account</a></li>
+            <!-- Add more menu items as needed -->
+        </ul>
+    </nav> 
+
+    <!-- Main Content -->
+    <div class="content">
+        <h1>Compose Message</h1>
+        <form id="messageForm">
+        <label for="recipient">Recipient:</label>
+        <select id="recipient" name="recipient">
+            <!-- Populate with employee options -->
+            <option value="all">All Employees</option>
+            <option value="employee1">Employee 1</option>
+            <option value="employee2">Employee 2</option>
+            <!-- Add more options as needed -->
+        </select><br><br>
+        <label for="message">Message:</label><br>
+        <textarea id="message" name="message" rows="4" cols="50"></textarea><br><br>
+
+        <label for="prewrittenMessage">Prewritten Message:</label>
+        <select id="prewrittenMessage" name="prewrittenMessage">
+            <!-- Populate with prewritten message options -->
+            <option value="message1">Prewritten Message 1</option>
+            <option value="message2">Prewritten Message 2</option>
+            <!-- Add more options as needed -->
+        </select><br><br>
+
+        <button type="submit">Send Message</button>
+    </form>
+
+    <hr>
+    
+    <h2>Message History</h2>
+    <div id="messageHistory">
+        <!-- Display sent messages here -->
+    </div>
+
+    <!-- Add any JavaScript scripts here for functionality -->
+    </div>
+
+</body>
+</html>

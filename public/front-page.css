@@ -1,0 +1,55 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:300);
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.gradient-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom right, #fff, #363434); /* Adjust colors as needed */
+    display: flex;
+}
+
+img {
+    position: absolute;
+    width: 100%; /* Adjust the size of the images as needed */
+    height: 100%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+}
+
+.message-box {
+    flex: 1; /* Allow the message box to take remaining space */
+    padding: 20px;
+    text-align: center;
+    color: #333; /* Adjust text color as needed */
+    font-family: "Roboto", sans-serif;
+    font-weight: bold;
+    font-size: 20px;
+    z-index: 2;
+}
+
+.background-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background-image: url('parking-systems-background.jpg'); 
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: #fff; /* Set text color to contrast with the background */
+    text-align: center;
+    padding: 20px;
+}
+
+a:link, a:visited {
+    color: black; /* Same color for unvisited and visited links */
+}
